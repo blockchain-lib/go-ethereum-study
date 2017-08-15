@@ -19,7 +19,7 @@ geth account new
 其结果将在keystore目录下生成一个json文件，文件名就是的账号地址，内容是：
 ```json
 {
-    "address": "59870e7df0fa152f59547d68b57bb38a0a7bce80", //地址
+    "address": "59870e7df0fa152f59547d68b57bb38a0a7bce80",
     "crypto": {
         "cipher": "aes-128-ctr",
         "ciphertext": "5c878700fbd14d7574e47e4a8bab42ab005c4a93140fe65a5bd00e450a912f12",
