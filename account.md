@@ -1,6 +1,6 @@
 ### 以太坊账号创建和加密过程
 
-以太坊的账号主要包含的信息有ID，地址（Address）,公私密钥对(PrivateKey),代码中定义如下：
+以太坊的账号主要包含的信息有ID，地址（Address），公私密钥对(PrivateKey)，代码中定义如下：
 ```
 type Key struct {
 	Id uuid.UUID // Version 4 "random" for unique id not derived from key data
@@ -93,7 +93,7 @@ func EncryptKey(key *Key, auth string, scryptN, scryptP int) ([]byte, error) {
 	//取出私钥中的数据
 	keyBytes := math.PaddedBigBytes(key.PrivateKey.D, 32)
     
-    //使用AE-CTR算法加密私钥
+        //使用AE-CTR算法加密私钥
 	iv := randentropy.GetEntropyCSPRNG(aes.BlockSize)
 	cipherText, err := aesCTRXOR(encryptKey, keyBytes, iv)
 	if err != nil {
@@ -104,7 +104,7 @@ func EncryptKey(key *Key, auth string, scryptN, scryptP int) ([]byte, error) {
 	mac := crypto.Keccak256(derivedKey[16:32], cipherText)
 
 
-    //保存数据成json格式
+        //保存数据成json格式
 	scryptParamsJSON := make(map[string]interface{}, 5)
 	scryptParamsJSON["n"] = scryptN
 	scryptParamsJSON["r"] = scryptR
